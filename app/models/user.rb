@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :batch, :designation, :email, :location, :name, :organization, :password_hash, :password_salt,:password, :password_confirmation
   #attr_accessible :email, :password, :password_confirmation
-  
+  BATCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
   attr_accessor :password
   before_save :encrypt_password
   

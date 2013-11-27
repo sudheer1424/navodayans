@@ -17,10 +17,11 @@
       <%= f.text_field :location, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label :batch, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :batch, :class => 'text_field' %>
+      <%= f.select :batch, options_for_select(User::BATCH) %>
     </div>
   </div>
   <div class="control-group">
