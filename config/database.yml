@@ -29,14 +29,14 @@ test:
   pool: 5
   username: root
   password: mtfbwy!
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
+  adapter: postgres
   encoding: utf8
   reconnect: false
   database: navodayans_production
   pool: 5
   username: root
   password: mtfbwy!
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
