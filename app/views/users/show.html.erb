@@ -3,6 +3,8 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+<table width = 40% ><tr><td><%= image_tag @user.pic.url(:thumb) %></td>
+ <td>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @user.name %></dd>
@@ -17,6 +19,8 @@
   <dt><strong><%= model_class.human_attribute_name(:designation) %>:</strong></dt>
   <dd><%= @user.designation %></dd>
 </dl>
+</td>
+</tr></table>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
