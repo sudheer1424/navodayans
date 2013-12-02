@@ -2,6 +2,14 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+    <%= form_tag users_path, :method => 'get' do %>  
+      <p> 
+        <div style="float:left; padding-left:95px;" >
+       <%= text_field_tag :search, params[:search] %>  
+        <%= submit_tag "Search", :name => nil %> 
+        </div>
+      </p>  
+    <% end %>  
 <table class="table table-striped">
   <thead>
     <tr>
@@ -40,7 +48,9 @@
     <% end %>
   </tbody>
 </table>
-
+<div style="float:right; padding-right:28px;">
+<%= paginate @users %> 
+ </div>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_user_path,
             :class => 'btn btn-primary' %>

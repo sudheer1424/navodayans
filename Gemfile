@@ -8,7 +8,7 @@ gem 'rails', '3.2.3'
 gem 'mysql2'
 gem 'less'
 gem 'less-rails'
-
+gem "kaminari" 
 gem 'execjs'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'therubyracer'
