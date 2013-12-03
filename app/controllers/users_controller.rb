@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :require_user, :except => [:index, :new, :create]
-  # GET /users
-  # GET /users.json
-  
+  before_filter :require_user, :except => [:new, :create]
+ 
   def index   
     @users = User.search(params[:search]).order("name").page(params[:page]).per(2)
   end
