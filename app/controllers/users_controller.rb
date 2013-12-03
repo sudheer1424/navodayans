@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_user, :except => [:index, :new, :create]
-
+  # GET /users
+  # GET /users.json
+  
   def index   
     @users = User.search(params[:search]).order("name").page(params[:page]).per(2)
   end
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
