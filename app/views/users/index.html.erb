@@ -1,15 +1,4 @@
-<%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-    <%= form_tag users_path, :method => 'get' do %>  
-      <p> 
-        <div style="float:left; padding-left:95px;" >
-       <%= text_field_tag :search, params[:search] %>  
-        <%= submit_tag "Search", :name => nil %> 
-        </div>
-      </p>  
-    <% end %>  
+<%- model_class = User -%> 
 <table class="table table-striped">
   <thead>
     <tr>

@@ -8,15 +8,28 @@
 
 </head>
 <body>
-<div id="user_nav" align = "right">
-  <% if current_user %>
-      Hiii..
+     <% if current_user %>
+      
+<div style="padding-top:10px">
+      <div style="float:right;padding-right:10px;">
+       <%= form_tag users_path, :method => 'get' do -%>  
+       <%= text_field_tag :search, params[:search] , :class => 'mask-search_alphanum'%>  
+        &nbsp;&nbsp;&nbsp;
+          Hiii..
       <%= link_to image_tag( current_user.pic.url  ,:size => "15x20"),  user_path(current_user)  %>
-       <%= current_user.name %>.&nbsp &nbsp &nbsp
-    <%= link_to t('.Log Out'), log_out_path ,:class => 'btn btn-mini btn-danger' %>&nbsp &nbsp &nbsp
-   
+       <%= current_user.name %>
+          &nbsp;&nbsp;
+          <%= link_to t('.Log Out'), log_out_path ,:class => 'btn btn-mini btn-danger' %>
+          &nbsp;&nbsp;
+          
+        <% end %>
+      </div>
+    </div>
+      <div class="page-header" style="padding-top:1px;">
+        <%= image_tag("/images/WebsiteBanner.png", :size => "600x800") %>
+      </div>
     <% end %>
-</div>
+
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>

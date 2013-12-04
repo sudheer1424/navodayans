@@ -1,8 +1,4 @@
 <%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
-
 <table width = 40% ><tr><td><%= image_tag @user.pic.url(:thumb) %></td>
  <td>
 <dl class="dl-horizontal">
