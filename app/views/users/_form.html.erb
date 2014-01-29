@@ -17,7 +17,12 @@
       <%= f.text_field :location, :class => 'text_field' %>
     </div>
   </div>
-
+  <div class="control-group">
+    <%= f.label :dob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :dob, :class => 'text_field', :id => "datepicker" %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :batch, :class => 'control-label' %>
     <div class="controls">
@@ -61,3 +66,11 @@
                 users_path, :class => 'btn' %>
   </div>
 <% end %>
+<%= stylesheet_link_tag "jquery-ui" %>
+<%= javascript_include_tag  "jquery-1.9.1.js" %>
+<%= javascript_include_tag  'jquery-ui' %>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
