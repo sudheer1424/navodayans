@@ -22,10 +22,9 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
   gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-ui-rails'
+  #gem 'jquery-ui-rails'
 end
 
-gem 'jquery-rails'
 gem "mail"
 
 group :production do
