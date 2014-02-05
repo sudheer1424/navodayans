@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129115650) do
+ActiveRecord::Schema.define(:version => 20140203120211) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -22,13 +22,14 @@ ActiveRecord::Schema.define(:version => 20140129115650) do
     t.string   "designation"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.date     "dob"
+    t.string   "role",             :default => "user"
   end
 
 end

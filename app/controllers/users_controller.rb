@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_user, :except => [:new, :create]
+  include ApplicationHelper
  
-  def index   
+  def index 
     @users = User.search(params[:search]).order("name").page(params[:page]).per(6)
   end
 
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to request.env['HTTP_REFERER'], notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
