@@ -1,4 +1,4 @@
-<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @user, :html => { :class => 'form-horizontal user_form' } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -67,9 +67,42 @@
   </div>
 <% end %>
 <%= stylesheet_link_tag "jquery-ui" %>
-<%= javascript_include_tag  "jquery-1.9.1.js", 'jquery-ui' %>
+<%= javascript_include_tag  "jquery-1.9.1.js", 'jquery-ui', 'jquery.validate.js', 'jquery.validate.min.js' %>
 <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
+  
+
+function  validate_function(){
+$(".user_form").validate({
+  rules: {
+    "user[name]": {
+      required: true,
+      minlength: 4
+    },
+    "user[email]": {
+      required: true,
+      email: true
+    }
+  },
+  messages: {
+   "user[name]" : {
+      required: "Name should not be blank",
+      minlength: jQuery.format("At least {0} characters required!")
+    },
+   "user[email]" : {
+      required: "We need your email address to contact you",
+      email: "Your email address must be in the format of name@domain.com"
+    }
+  }
+});
+
+}
+
+$(document).ready(function() {
+  validate_function();
+  
+$( "#datepicker" ).datepicker();
+
+ });
+</script>
+
+
