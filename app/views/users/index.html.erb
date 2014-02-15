@@ -1,5 +1,18 @@
 <%- model_class = User -%> 
-<table class="table table-striped">
+<div class="bootstrap">
+<% if !current_user.is_user? %>
+  <h1>Manage Users</h1>
+  <% else %>
+  <h1>Users Details</h1>
+<% end %>
+<div style = "float: right;">
+  <% if current_user.is_admin? %> 
+ <%= link_to 'New User', new_user_path,:class => 'btn btn-info' %>
+<% end %>
+</div>
+<br/>
+<br/>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th></th>
@@ -25,15 +38,14 @@
         <td><%= user.organization %></td>
         <td><%= user.designation %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_user_path(user), :class => 'btn btn-mini',:rel => "facebox" %>
-        <% if is_admin? %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      user_path(user),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-       <% end %>
+        <div style="float:left;padding-left: 10px;">
+        <%= link_to image_tag("edit.png",:style => "height:20px;"), edit_user_path(user),:rel => "facebox", :title => 'View Details' %>
+        </div>
+        <div style="float:left;padding-left: 10px;">
+        <% if current_user.is_admin? %>
+          <%= link_to  image_tag("delete.jpg",:style => "height:20px;"), user_path(user), confirm: 'Are you sure?', :method => :delete,:rel => "tooltip", :title => "Remove Userx`x`" %>
+        <% end %>
+        </div>
         </td>
       </tr>
     <% end %>
@@ -42,9 +54,7 @@
 <div style="float:right; padding-right:28px;">
 <%= paginate @users %> 
  </div>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_path,
-            :class => 'btn btn-primary' %>
+</div>
 <script>
  $(document).ready(function() {
   $('a[rel*=facebox]').facebox();

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_user, :except => [:new, :create]
-  include ApplicationHelper
+  #include ApplicationHelper
  
   def index 
     @users = User.search(params[:search]).order("name").page(params[:page]).per(6)

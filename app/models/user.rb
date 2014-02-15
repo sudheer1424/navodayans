@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :batch, :designation, :email, :role, :location, :dob, :name, :organization, :password_hash, :password_salt,:password, :password_confirmation, :pic,
+  attr_accessible :batch, :designation, :email, :role_id, :location, :dob, :name, :organization, :password_hash, :password_salt,:password, :password_confirmation, :pic,
   BATCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
   attr_accessor :password
   before_save :encrypt_password
+
+  belongs_to :role
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
@@ -18,7 +20,15 @@ class User < ActiveRecord::Base
       nil
     end
   end
-  
+
+  def is_admin?
+    self.role.name.downcase == "admin" if self.role_id
+  end
+
+  def is_user?
+    self.role.name.downcase == "user" if self.role_id
+  end
+
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
