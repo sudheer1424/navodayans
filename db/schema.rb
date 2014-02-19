@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140215090703) do
+ActiveRecord::Schema.define(:version => 20140219111643) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(:version => 20140215090703) do
     t.datetime "pic_updated_at"
     t.date     "dob"
     t.integer  "role_id",          :default => 2
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end

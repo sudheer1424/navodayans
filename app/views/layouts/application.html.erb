@@ -10,7 +10,7 @@
 <body>
      <% if current_user %>
       
-<div style="padding-top:10px">
+      <div style="padding-top:10px">
       <div style="float:right;padding-right:10px;">
        <%= form_tag users_path, :method => 'get' do -%>  
        <%= text_field_tag :search, params[:search] , :class => 'mask-search_alphanum'%>  
@@ -19,7 +19,7 @@
       <%= link_to image_tag( current_user.pic.url  ,:size => "15x20"),  user_path(current_user)  %>
        <%= current_user.name %>
           &nbsp;&nbsp;
-          <%= link_to t('.Log Out'), log_out_path ,:class => 'btn btn-mini btn-danger' %>
+          <%= link_to t('.Log Out'), log_out_path ,:class => 'btn btn-mini btn-danger', id: "sign_out"  %>
           &nbsp;&nbsp;
           
         <% end %>
@@ -46,7 +46,9 @@
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+<% end %> 
+
+
 <%= yield %>
 
 </body>
