@@ -12,7 +12,7 @@
   <%= form_tag    sessions_path do %>
     <h1>Log in to your <strong>Navodayans</strong> account!</h1>
         <p class="register" >Not a member ? <%= link_to "Register here!" , sign_up_path %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></p>
+        <%= link_to image_tag("facebook_login.jpg",:style => "height:20px;"), "/auth/facebook", id: "sign_in" %></p>
     <div>
         <%= label_tag :email %>
         <%= text_field_tag :email , params[:email] ,:id=>"login_username", :class=>"field required" %>
