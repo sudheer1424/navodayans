@@ -17,7 +17,7 @@ gem 'omniauth-facebook', '1.4.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
+  
   gem 'twitter-bootstrap-rails'
   gem "therubyracer"
   gem "less-rails"
@@ -26,7 +26,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   #gem 'jquery-ui-rails'
 end
-
+gem 'coffee-rails', '~> 3.2.1'
 gem "mail"
 
 group :production do
