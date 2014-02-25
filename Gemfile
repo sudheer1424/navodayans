@@ -6,6 +6,7 @@ ruby '1.9.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'jquery-rails'
+gem 'coffee-rails', '~> 3.2.1'
 gem 'mysql2'
 gem 'less'
 gem "kaminari" 
@@ -26,7 +27,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   #gem 'jquery-ui-rails'
 end
-gem 'coffee-rails', '~> 3.2.1'
+
 gem "mail"
 
 group :production do
