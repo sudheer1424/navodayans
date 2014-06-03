@@ -7,9 +7,14 @@ class User < ActiveRecord::Base
   belongs_to :role
   
   validates_confirmation_of :password
-  #validates_presence_of :password, :on => :create
-  #validates_presence_of :email
+  validates_presence_of :name
   validates_uniqueness_of :email
+  #validates_presence_of :password, :on => :create
+  validates_presence_of :location
+  #validates_presence_of :dob
+  #validates_presence_of :batch
+  validates_presence_of :organization
+  validates_presence_of :designation
   has_attached_file :pic , :styles => 
           { :medium => "300x300>", :thumb => "100x100>" }
   def self.authenticate(email, password)

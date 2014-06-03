@@ -4,3 +4,5 @@ class DevelopmentMailInterceptor
     message.to = "laxmiror@gmail.com"
   end
 end
+
+

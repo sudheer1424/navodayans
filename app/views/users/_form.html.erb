@@ -81,6 +81,18 @@ $(".user_form").validate({
     "user[email]": {
       required: true,
       email: true
+    },
+    "user[location]": {
+      required: true,
+      minlength: 4
+    },
+    "user[organization]": {
+      required: true,
+      minlength: 4
+    },
+    "user[designation]": {
+      required: true,
+      minlength: 4
     }
   },
   messages: {
@@ -91,6 +103,18 @@ $(".user_form").validate({
    "user[email]" : {
       required: "We need your email address to contact you",
       email: "Your email address must be in the format of name@domain.com"
+    },
+   "user[location]" : {
+      required: "Location should not be blank",
+      minlength: jQuery.format("At least {0} characters required!")
+    },
+   "user[organization]" : {
+      required: "Organization should not be blank",
+      minlength: jQuery.format("At least {0} characters required!")
+    },
+   "user[designation]" : {
+      required: "Designation should not be blank",
+      minlength: jQuery.format("At least {0} characters required!")
     }
   }
 });
